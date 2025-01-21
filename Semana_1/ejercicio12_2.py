@@ -1,8 +1,4 @@
-#Ingrese un número de horas en el estacionamiento: 2.54
-#Entrada inválida. Por favor, ingrese un número entero.
-#Ingrese un número de horas en el estacionamiento: 2
-#El cargo por 2 horas es: S/3.50
-
+#Escriba una función que reciba dos números y determine si el primero es múltiplo del segundo.
 #FUNCION PARA DETERMINAR MULTIPLOS DE DOS NUMEROS
 
 def es_multiplo(num1, num2):

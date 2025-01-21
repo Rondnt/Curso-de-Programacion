@@ -1,4 +1,4 @@
-#Un estacionamiento cobra S/3.00 por la primera hora, luego S/0.50 por cada hora siguiente. El cargo máximo por día es de S/12.00. Programe una función para que al ingresar el número de horas se imprima el cargo. Escriba una función que reciba dos números y determine si el primero es múltiplo del segundo. El usuario ingresará un número de horas, de minutos y segundos y nos devuelva el equivalente en segundos.
+#Un estacionamiento cobra S/3.00 por la primera hora, luego S/0.50 por cada hora siguiente. El cargo máximo por día es de S/12.00. Programe una función para que al ingresar el número de horas se imprima el cargo.
 #FUNCION PARA INGRESAR EL NUMERO DE HORAS Y SE IMPRIMA EL CARGO
 
 def ingresar_numero(mensaje):
