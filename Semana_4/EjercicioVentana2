@@ -1,0 +1,133 @@
+package teoria;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class ventana2 extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField tfnombre;
+	private JTextField tfedad;
+	private JTextField tfnota;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ventana2 frame = new ventana2();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ventana2() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lbnombre = new JLabel("Nombre");
+		lbnombre.setBounds(24, 36, 42, 13);
+		contentPane.add(lbnombre);
+		
+		tfnombre = new JTextField();
+		tfnombre.setBounds(97, 33, 190, 19);
+		contentPane.add(tfnombre);
+		tfnombre.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("Edad");
+		lblNewLabel_1.setBounds(24, 73, 42, 13);
+		contentPane.add(lblNewLabel_1);
+		
+		tfedad = new JTextField();
+		tfedad.setBounds(97, 70, 76, 19);
+		contentPane.add(tfedad);
+		tfedad.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Nota");
+		lblNewLabel_2.setBounds(24, 116, 42, 13);
+		contentPane.add(lblNewLabel_2);
+		
+		tfnota = new JTextField();
+		tfnota.setBounds(97, 113, 76, 19);
+		contentPane.add(tfnota);
+		tfnota.setColumns(10);
+		
+		JLabel lbsaludo = new JLabel("");
+		lbsaludo.setBounds(24, 212, 317, 13);
+		contentPane.add(lbsaludo);
+		
+		JLabel lbedad = new JLabel("");
+		lbedad.setBounds(24, 228, 214, 13);
+		contentPane.add(lbedad);
+		
+		JButton btnenviar = new JButton("Enviar");
+		btnenviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nombre = tfnombre.getText();
+				lbsaludo.setText("Bienvenido " + nombre);
+				String edad_str = tfedad.getText();
+				double nota = Double.parseDouble(tfnota.getText());
+				int edad = Integer.parseInt(edad_str);
+				
+				if(edad < 0) {
+					lbedad.setText("La edad no puede ser menor a 0");
+					return;
+				}if(edad >= 18) {
+					lbedad.setText("Usted es mayor de edad");
+				} else {
+					lbedad.setText("Usted es menor de edad");
+				}
+					
+				if(nota < 0 || nota > 20) {
+					JOptionPane.showMessageDialog(null,"¡ERROR! Ingrese una nota valida entre 0 a 20", "Informacion", JOptionPane.WARNING_MESSAGE);
+					return;
+				}
+				if (nota >= 11.5) {
+					JOptionPane.showMessageDialog(null,"¡Felicitaciones! Usted aprobo el curso", "Informacion", JOptionPane.INFORMATION_MESSAGE);					
+				}else {
+					JOptionPane.showMessageDialog(null,"Usted desaprobo el curso", "Informacion", JOptionPane.PLAIN_MESSAGE);
+					
+				}
+			}
+					
+		});
+		
+		btnenviar.setBounds(24, 167, 83, 21);
+		contentPane.add(btnenviar);
+		
+		
+		
+		
+	}
+}
+
+/*
+ * Hacer un programa que pida al usuario su nombre, edad y su nota
+ * mostrar un mensaje de bienvenido nombre.usted es mayor o menor de edady luego mostrar
+ * una ventana de alerta que indique si esta aprobado o desaprobado.JOptionPane*/
+
+
+
